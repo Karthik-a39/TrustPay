@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: NotificationService
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: notify-1N
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: ${TRUSTPAY_EMAIL}
+    password: ${TRUSTPAY_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+notification:
+  from-email: ${TRUSTPAY_FROM_EMAIL}
+
+management:
+  server:
+    port: ${server.port}
+
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+  health:
+    defaults:
+      enabled: true
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
