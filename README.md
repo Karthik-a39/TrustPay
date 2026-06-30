@@ -109,7 +109,7 @@ Service registry. Every other service registers here on startup and discovers pe
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/trustpay.git
+git clone https://github.com/Karthik-a39/trustpay.git
 cd trustpay
 
 # Create a .env file (see .env.example)
