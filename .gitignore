@@ -1,0 +1,30 @@
+# Maven build output — applies to ALL services, not just one
+**/target/
+
+# IntelliJ / Eclipse
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+
+# VS Code
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables — never commit secrets
+.env
+.env.local
+*.env
+
+# Docker
+docker-compose.override.yml
