@@ -1,4 +1,7 @@
 # TrustPay — Digital Banking Microservices Platform
+## Live Demo
+API Gateway: http://13.48.24.109:9090
+(Note: instance may be stopped to control AWS costs — contact me to spin it up for a live demo)
 
 A full-stack digital banking system built with Spring Boot microservices, demonstrating JWT-based authentication, service discovery, API gateway routing, event-driven communication with Kafka, Redis caching, and containerized deployment with Docker.
 
