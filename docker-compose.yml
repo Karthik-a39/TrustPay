@@ -219,9 +219,9 @@ services:
 
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
 
-      TRUSTPAY_MAIL: ${TRUSTPAY_EMAIL}
-
+      TRUSTPAY_EMAIL: ${TRUSTPAY_EMAIL}
       TRUSTPAY_PASSWORD: ${TRUSTPAY_PASSWORD}
+      TRUSTPAY_FROM_EMAIL: ${TRUSTPAY_FROM_EMAIL}
 
     networks:
       - trust-pay-network
