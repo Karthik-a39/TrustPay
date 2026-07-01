@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Eureka-Server" />
         <module name="NotificationService" />
       </profile>
       <profile name="Annotation profile for AuthService" enabled="true">
@@ -30,7 +31,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ApiGateWay" target="21" />
-      <module name="Eureka-Server" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -6,15 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import org.springframework.http.HttpCookie;
+import com.karthik.AuthService.Dto.VerifyPinRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Service;
 
 import com.karthik.AuthService.Entities.AuthEntity;
@@ -180,18 +178,18 @@ public class AuthServices {
 	}
 
 
-	public String setPinforAccount(String userId, String pin) {
+	public String setPinforAccount(String userId, PinRequest pin) {
 		AuthEntity auth=authRepo.findByUserId(userId);
 		if(auth==null) {
 			throw new RuntimeException("User Not Found!");
 		}
-		auth.setTransactionPin(passwordEncoder.encode(pin));
+		auth.setTransactionPin(passwordEncoder.encode(pin.getPin()));
 		authRepo.save(auth);
 		return "Transaction Pin Set Successfully";
 	}
 
 
-	public Boolean verifyPin(PinRequest req) {
+	public Boolean verifyPin(VerifyPinRequest req) {
 	    AuthEntity auth = authRepo.findById(req.getId()).orElse(null);
 	    if (auth == null) {
 	        throw new RuntimeException("User Not Found!");

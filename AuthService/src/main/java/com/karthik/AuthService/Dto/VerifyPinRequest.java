@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PinRequest {
-
-
-	private String pin;
+public class VerifyPinRequest {
+    private Long id;
+    private String pin;
 }
