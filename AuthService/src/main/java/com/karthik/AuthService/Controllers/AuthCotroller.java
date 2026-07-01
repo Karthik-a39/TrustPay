@@ -77,7 +77,7 @@ public class AuthCotroller {
 	 }
 	 
 	 @GetMapping("/set-pin")
-	 public String setPin(@RequestHeader("X-User-Id") String userId, @RequestBody PinRequest req) {
+	 public String setPin(@RequestHeader("X-User-Id") String userId, @RequestParam String req) {
 		 return service.setPinforAccount(userId,req);
 	 }
 	

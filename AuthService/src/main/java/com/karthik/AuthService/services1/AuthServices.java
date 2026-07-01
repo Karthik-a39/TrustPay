@@ -180,12 +180,12 @@ public class AuthServices {
 	}
 
 
-	public String setPinforAccount(String userId, PinRequest pin) {
+	public String setPinforAccount(String userId, String pin) {
 		AuthEntity auth=authRepo.findByUserId(userId);
 		if(auth==null) {
 			throw new RuntimeException("User Not Found!");
 		}
-		auth.setTransactionPin(passwordEncoder.encode(pin.getPin()));
+		auth.setTransactionPin(passwordEncoder.encode(pin));
 		authRepo.save(auth);
 		return "Transaction Pin Set Successfully";
 	}
